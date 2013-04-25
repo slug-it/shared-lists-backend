@@ -20,7 +20,7 @@ func Boot(listening_url string, db_url string) {
     log.Println("Server startup...")
 
     db := mongodb.New()
-    s := server.New()
+    s := server.New(db)
 
     db.Start(db_url)
     s.Start(listening_url)

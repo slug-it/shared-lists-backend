@@ -3,17 +3,19 @@ package server
 import (
     "log"
     "net/http"
+    "../data"
 )
 
 type server struct {
+    db data.Data
 }
 
-func New() *server {
+func New(db data.Data) *server {
     if g_server != nil {
         log.Fatal("Trying to create another server!")
     }
 
-    g_server = &server{}
+    g_server = &server{db}
     return g_server
 }
 
