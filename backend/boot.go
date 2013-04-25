@@ -3,13 +3,13 @@ package backend
 import (
     "log"
     "./server"
-    "./data"
+    "./data/mongodb"
 )
 
 func Boot(listening_url string, db_url string) {
     log.Println("Booting backend...")
 
-    db := data.New()
+    db := mongodb.New()
     s := server.New()
 
     db.Start(db_url)
